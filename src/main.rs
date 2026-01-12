@@ -53,7 +53,7 @@ async fn run<B>(backend: B, mut greeter: Greeter, mut events: Events) -> Result<
 where
   B: tui::backend::Backend,
 {
-  tracing::info!("tuigreet started");
+  tracing::info!("armyknife-greeter started");
 
   register_panic_handler();
 
@@ -178,7 +178,7 @@ fn init_logger(greeter: &Greeter) -> Option<WorkerGuard> {
   match (greeter.debug, logfile.open(&greeter.logfile)) {
     (true, Ok(file)) => {
       let (appender, guard) = tracing_appender::non_blocking(file);
-      let target = Targets::new().with_target("tuigreet", LevelFilter::DEBUG);
+      let target = Targets::new().with_target("armyknife_greeter", LevelFilter::DEBUG);
 
       tracing_subscriber::registry()
         .with(tracing_subscriber::fmt::layer().with_writer(appender).with_line_number(true))

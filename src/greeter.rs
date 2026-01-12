@@ -34,7 +34,7 @@ use crate::{
   },
 };
 
-const DEFAULT_LOG_FILE: &str = "/tmp/tuigreet.log";
+const DEFAULT_LOG_FILE: &str = "/tmp/armyknife-greeter.log";
 const DEFAULT_LOCALE: Locale = Locale::en_US;
 const DEFAULT_ASTERISKS_CHARS: &str = "*";
 // `startx` wants an absolute path to the executable as a first argument.
@@ -428,7 +428,7 @@ impl Greeter {
 
     opts.optflag("h", "help", "show this usage information");
     opts.optflag("v", "version", "print version information");
-    opts.optflagopt("d", "debug", "enable debug logging to the provided file, or to /tmp/tuigreet.log", "FILE");
+    opts.optflagopt("d", "debug", "enable debug logging to the provided file, or to /tmp/armyknife-greeter.log", "FILE");
     opts.optopt("c", "cmd", "command to run", "COMMAND");
     opts.optmulti("", "env", "environment variables to run the default session with (can appear more than once)", "KEY=VALUE");
     opts.optopt("s", "sessions", "colon-separated list of Wayland session paths", "DIRS");
@@ -647,12 +647,13 @@ impl Greeter {
 }
 
 fn print_usage(opts: Options) {
-  eprint!("{}", opts.usage("Usage: tuigreet [OPTIONS]"));
+  eprint!("{}", opts.usage("Usage: armyknife-greeter [OPTIONS]"));
 }
 
 fn print_version() {
-  println!("tuigreet {} ({})", env!("VERSION"), env!("TARGET"));
-  println!("Copyright (C) 2020 Antoine POPINEAU <https://github.com/apognu/tuigreet>.");
+  println!("armyknife-greeter {} ({})", env!("VERSION"), env!("TARGET"));
+  println!("Based on tuigreet by Antoine POPINEAU <https://github.com/apognu/tuigreet>.");
+  println!("Armyknife Edition (C) 2024 Armyknife Labs <https://armyknifelabs.com>.");
   println!("Licensed under GPLv3+ (GNU GPL version 3 or later).");
   println!();
   println!("This is free software, you are welcome to redistribute it under some conditions.");
